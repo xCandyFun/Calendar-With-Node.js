@@ -32,7 +32,7 @@ function saveEvents() {
     fs.writeFileSync(DATA_FILE, JSON.stringify(calendarEvents, null, 2))
 }
 
-app.get('/', (req, res) => {
+app.get('/index/api/calendar', (req, res) => {
     res.sendFile(__dirname + '/templates/index.html');
 });
 
@@ -75,7 +75,7 @@ app.delete('/api/events/:id', (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
 }) 
